@@ -1,0 +1,18 @@
+[submodule "plugins/snlab.devopen.newresource"]
+	path = plugins/snlab.devopen.newresource
+	url = https://github.com/snlab/snlab.devopen.newresource
+[submodule "plugins/snlab.devopen.controller"]
+	path = plugins/snlab.devopen.controller
+	url = https://github.com/snlab/snlab.devopen.controller
+[submodule "plugins/snlab.devopen.server"]
+	path = plugins/snlab.devopen.server
+	url = https://github.com/snlab/snlab.devopen.server
+[submodule "plugins/snlab.devopen.topoeditor"]
+	path = plugins/snlab.devopen.topoeditor
+	url = https://github.com/snlab/snlab.devopen.topoeditor
+[submodule "plugins/snlab.devopen.layout"]
+	path = plugins/snlab.devopen.layout
+	url = https://github.com/snlab/snlab.devopen.layout
+[submodule "plugins/snlab.devopen.favicon"]
+	path = plugins/snlab.devopen.favicon
+	url = https://github.com/snlab/snlab.devopen.favicon
