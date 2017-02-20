@@ -17,7 +17,7 @@ RUN apt-get update --quiet \
         --yes \
         --no-install-recommends \
         --no-install-suggests \
-        autoconf automake ca-certificates libtool net-tools openssh-client unzip \
+        autoconf automake ca-certificates libtool net-tools unzip \
         build-essential g++ curl libssl-dev apache2-utils git libxml2-dev sshfs tmux \
 `# ------------------------------------------------------------------------------` \
 `# Clone and install mininet` \
@@ -52,7 +52,6 @@ RUN apt-get update --quiet \
     && mkdir -p /root/bin \
     && cd /root/bin \
     && npm i ssh2 scp2 optimist \
-    && ln -s /cloud9/plugins/snlab.devopen.controller/deploy.js /root/bin/deploy \
 `# ------------------------------------------------------------------------------` \
 `# Install Cloud9` \
     && git clone https://github.com/fno2010/core.git -b devopen /cloud9 \
@@ -72,6 +71,15 @@ RUN apt-get update --quiet \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /cloud9
+
+# Add configs and plugins for DevOpen
+ADD conf/devopen-config.js /cloud9/configs/devopen-config.js
+ADD conf/devopen.js /cloud9/configs/devopen.js
+ADD conf/client-devopen.js /cloud9/configs/client-devopen.js
+ADD conf/client-workspace-devopen.js /cloud9/configs/client-workspace-devopen.js
+ADD conf/devopen-settings.js /cloud9/settings/devopen.js
+ADD plugins /cloud9/plugins/
+COPY plugins/snlab.devopen.controller/deploy.js /root/bin/deploy
 
 # Add supervisord conf
 ADD conf/cloud9.conf /etc/supervisor/conf.d/
